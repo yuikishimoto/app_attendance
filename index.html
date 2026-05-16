@@ -29,6 +29,24 @@ h2 {
     border-left: 4px solid #007bff;
     border-radius: 6px;
 }
+.button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+    background: #007bff;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+}
+.notice {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
 </style>
 </head>
 <body>
@@ -49,9 +67,7 @@ h2 {
         ③ 右上の「追加」を押すと、ホーム画面にアプリとして追加されます。
     </div>
 
-    <p style="margin-top:20px; font-size:14px; color:#555;">
-        ※ iPhone では、Safari からのみホーム画面に追加できます。
-    </p>
+    <p class="notice">5秒後にアプリ（出欠フォーム）へ自動で移動します。</p>
 </div>
 
 <!-- Android -->
@@ -70,10 +86,11 @@ h2 {
         ③ 追加を押すと、ホーム画面にアプリとして追加されます。
     </div>
 
-    <p style="margin-top:20px; font-size:14px; color:#555;">
-        ※ Android では、Chrome を使用すると自動で「アプリとしてインストール」が表示される場合があります。
-    </p>
+    <p class="notice">5秒後にアプリ（出欠フォーム）へ自動で移動します。</p>
 </div>
+
+<!-- 共通：アプリへ戻るボタン -->
+<a class="button" href="index.html">出欠フォームを開く</a>
 
 <script>
 const ua = navigator.userAgent.toLowerCase();
@@ -82,6 +99,11 @@ if (ua.includes("iphone") || ua.includes("ipad")) {
 } else {
     document.getElementById("android").style.display = "block";
 }
+
+// 5秒後に自動でアプリへ戻る
+setTimeout(() => {
+    window.location.href = "index.html";
+}, 5000);
 </script>
 
 </body>
