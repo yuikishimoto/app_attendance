@@ -1,90 +1,91 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>出欠フォーム</title>
-
-  <!-- PWA -->
-  <link rel="manifest" href="manifest.json">
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js");
-    }
-  </script>
-
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background: #f0f4ff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-      color: #2b7cff;
-    }
-
-    .date {
-      font-size: 20px;
-      margin-bottom: 30px;
-      color: #333;
-    }
-
-    a.button {
-      display: inline-block;
-      padding: 18px 40px;
-      background: #2b7cff;
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 25px;
-    }
-
-    .note {
-      font-size: 16px;
-      color: #444;
-      max-width: 80%;
-      line-height: 1.6;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インストール方法</title>
+<style>
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    background: #f5f5f5;
+}
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 480px;
+    margin: auto;
+    line-height: 1.8;
+}
+h2 {
+    text-align: center;
+}
+.step {
+    margin-top: 12px;
+    padding: 12px;
+    background: #eef5ff;
+    border-left: 4px solid #007bff;
+    border-radius: 6px;
+}
+</style>
 </head>
-
 <body>
-  <h1>出欠フォーム</h1>
 
-  <div class="date" id="today"></div>
+<!-- iPhone -->
+<div class="card" id="iphone" style="display:none;">
+    <h2>iPhoneでの追加方法</h2>
 
-  <a class="button" href="https://docs.google.com/forms/d/1zv9at6x-sNPZonINCtPVEHLgPWxelZPoi3_vOj5RhB8/viewform">
-    出欠フォームを開く
-  </a>
+    <div class="step">
+        ① 画面下の「共有ボタン（□↑）」を押します。
+    </div>
 
-  <div class="note">
-    保護者様がご回答いたしますよう、よろしくお願いいたします。
-  </div>
+    <div class="step">
+        ② 表示されたメニューを下にスクロールし、「ホーム画面に追加」を押します。
+    </div>
 
-  <script>
-    // 今日の日付を表示
-    const today = new Date();
-    const text = today.toLocaleDateString("ja-JP", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      weekday: "long"
-    });
-    document.getElementById("today").textContent = `本日：${text}`;
-  </script>
+    <div class="step">
+        ③ 右上の「追加」を押すと、ホーム画面にアプリとして追加されます。
+    </div>
+
+    <p style="margin-top:20px; font-size:14px; color:#555;">
+        ※ iPhone では、Safari からのみホーム画面に追加できます。
+    </p>
+</div>
+
+<!-- Android -->
+<div class="card" id="android" style="display:none;">
+    <h2>Androidでの追加方法</h2>
+
+    <div class="step">
+        ① 画面右上の「メニュー（⋮）」を押します。
+    </div>
+
+    <div class="step">
+        ② 「ホーム画面に追加」または「アプリとしてインストール」を押します。
+    </div>
+
+    <div class="step">
+        ③ 追加を押すと、ホーム画面にアプリとして追加されます。
+    </div>
+
+    <p style="margin-top:20px; font-size:14px; color:#555;">
+        ※ Android では、Chrome を使用すると自動で「アプリとしてインストール」が表示される場合があります。
+    </p>
+</div>
+
+<script>
+const ua = navigator.userAgent.toLowerCase();
+if (ua.includes("iphone") || ua.includes("ipad")) {
+    document.getElementById("iphone").style.display = "block";
+} else {
+    document.getElementById("android").style.display = "block";
+}
+</script>
+
 </body>
 </html>
+
 
 

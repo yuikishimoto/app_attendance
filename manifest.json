@@ -1,10 +1,10 @@
 {
   "name": "出欠フォーム",
-  "short_name": "出欠",
-  "start_url": "index.html",
+  "short_name": "出欠フォーム",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#2b7cff",
+  "theme_color": "#007bff",
   "icons": [
     {
       "src": "192.png",
