@@ -4,39 +4,87 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>出欠フォーム</title>
+
+  <!-- PWA -->
   <link rel="manifest" href="manifest.json">
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("sw.js");
     }
   </script>
+
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: sans-serif;
+      background: #f0f4ff;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #f0f4ff;
+      text-align: center;
     }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #2b7cff;
+    }
+
+    .date {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
     a.button {
       display: inline-block;
-      padding: 20px 40px;
+      padding: 18px 40px;
       background: #2b7cff;
       color: white;
       text-decoration: none;
       border-radius: 12px;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .note {
+      font-size: 16px;
+      color: #444;
+      max-width: 80%;
+      line-height: 1.6;
     }
   </style>
 </head>
+
 <body>
+  <h1>出欠フォーム</h1>
+
+  <div class="date" id="today"></div>
+
   <a class="button" href="https://docs.google.com/forms/d/1zv9at6x-sNPZonINCtPVEHLgPWxelZPoi3_vOj5RhB8/viewform">
     出欠フォームを開く
   </a>
+
+  <div class="note">
+    保護者様がご回答いたしますよう、よろしくお願いいたします。
+  </div>
+
+  <script>
+    // 今日の日付を表示
+    const today = new Date();
+    const text = today.toLocaleDateString("ja-JP", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      weekday: "long"
+    });
+    document.getElementById("today").textContent = `本日：${text}`;
+  </script>
 </body>
 </html>
+
 
