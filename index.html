@@ -60,14 +60,14 @@ h2 {
     </div>
 
     <div class="step">
-        ② 表示されたメニューを下にスクロールし、「ホーム画面に追加」を押します。
+        ② メニューを下にスクロールし、「ホーム画面に追加」を押します。
     </div>
 
     <div class="step">
-        ③ 右上の「追加」を押すと、ホーム画面にアプリとして追加されます。
+        ③ 右上の「追加」を押します。
     </div>
 
-    <p class="notice">5秒後にアプリ（出欠フォーム）へ自動で移動します。</p>
+    <p class="notice">数秒後にアプリ（出欠フォーム）へ自動で移動します。</p>
 </div>
 
 <!-- Android -->
@@ -75,7 +75,7 @@ h2 {
     <h2>Androidでの追加方法</h2>
 
     <div class="step">
-        ① 画面右上の「メニュー（⋮）」を押します。
+        ① 右上の「メニュー（⋮）」を押します。
     </div>
 
     <div class="step">
@@ -83,10 +83,10 @@ h2 {
     </div>
 
     <div class="step">
-        ③ 追加を押すと、ホーム画面にアプリとして追加されます。
+        ③ 追加を押します。
     </div>
 
-    <p class="notice">5秒後にアプリ（出欠フォーム）へ自動で移動します。</p>
+    <p class="notice">数秒後にアプリ（出欠フォーム）へ自動で移動します。</p>
 </div>
 
 <!-- 共通：アプリへ戻るボタン -->
@@ -100,14 +100,15 @@ if (ua.includes("iphone") || ua.includes("ipad")) {
     document.getElementById("android").style.display = "block";
 }
 
-// 5秒後に自動でアプリへ戻る
+// 5秒後に確実に遷移
 setTimeout(() => {
-    window.location.href = "index.html";
+    window.location.replace("index.html");
 }, 5000);
 </script>
 
 </body>
 </html>
+
 
 
 
