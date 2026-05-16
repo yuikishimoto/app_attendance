@@ -47,6 +47,13 @@ button {
     font-size: 14px;
     color: #444;
 }
+.link {
+    margin-top: 18px;
+    font-size: 15px;
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
 </style>
 </head>
 
@@ -56,17 +63,17 @@ button {
     <h2>出欠フォーム</h2>
     <p>本日：<span id="today"></span></p>
 
-    <!-- 出欠フォームボタン（完全URL） -->
+    <!-- 出欠フォームボタン -->
     <button onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSfQ3y59bP1Avib7Vz8ZhXxEicA_zhPRjt7YZ2Kiuxqb2acJXw/viewform'">
         出欠フォームを開く
     </button>
 
     <p class="notice">保護者様がご回答をお願いいたします。</p>
 
-    <!-- インストール方法ページへ -->
-    <button onclick="location.href='install.html'">
-        アプリとしてインストールする
-    </button>
+    <!-- 説明文リンク（ボタンではない） -->
+    <p class="link" onclick="location.href='install.html'">
+        ホーム画面に追加する方法はこちら
+    </p>
 </div>
 
 <script>
@@ -77,6 +84,7 @@ if ("serviceWorker" in navigator) {
 
 </body>
 </html>
+
 
 
 
