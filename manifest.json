@@ -1,7 +1,8 @@
 {
   "name": "出欠フォーム",
-  "short_name": "出欠フォーム",
-  "start_url": "./index.html",
+  "short_name": "出欠",
+  "start_url": "index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#007bff",
