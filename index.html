@@ -3,10 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>インストール方法</title>
+<title>出欠フォーム</title>
+<link rel="manifest" href="manifest.json">
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const today = new Date();
+    const y = today.getFullYear();
+    const m = today.getMonth() + 1;
+    const d = today.getDate();
+    const w = ["日","月","火","水","木","金","土"][today.getDay()];
+    document.getElementById("today").textContent = `${y}年${m}月${d}日 ${w}曜日`;
+});
+</script>
 <style>
 body {
     font-family: sans-serif;
+    text-align: center;
     padding: 20px;
     background: #f5f5f5;
 }
@@ -15,95 +27,47 @@ body {
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    max-width: 480px;
+    max-width: 420px;
     margin: auto;
-    line-height: 1.8;
 }
-h2 {
-    text-align: center;
-}
-.step {
-    margin-top: 12px;
-    padding: 12px;
-    background: #eef5ff;
-    border-left: 4px solid #007bff;
-    border-radius: 6px;
-}
-.button {
-    display: block;
+button {
     width: 100%;
     padding: 14px;
-    margin-top: 20px;
+    margin-top: 12px;
     font-size: 18px;
-    text-align: center;
+    border: none;
+    border-radius: 8px;
     background: #007bff;
     color: white;
-    border-radius: 8px;
-    text-decoration: none;
 }
 .notice {
-    margin-top: 20px;
+    margin-top: 16px;
     font-size: 14px;
-    color: #555;
-    text-align: center;
+    color: #444;
 }
 </style>
 </head>
 <body>
 
-<!-- iPhone -->
-<div class="card" id="iphone" style="display:none;">
-    <h2>iPhoneでの追加方法</h2>
+<div class="card">
+    <h2>出欠フォーム</h2>
+    <p>本日：<span id="today"></span></p>
 
-    <div class="step">
-        ① 画面下の「共有ボタン（□↑）」を押します。
-    </div>
+    <button onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSfQ3y59bP1Avib7Vz8ZhXxEicA_zhPRjt7YZ2Kiuxqb2acJXw/viewform'">
+        出欠フォームを開く
+    </button>
 
-    <div class="step">
-        ② メニューを下にスクロールし、「ホーム画面に追加」を押します。
-    </div>
+    <p class="notice">保護者様がご回答をお願いいたします。</p>
 
-    <div class="step">
-        ③ 右上の「追加」を押します。
-    </div>
-
-    <p class="notice">数秒後にアプリ（出欠フォーム）へ自動で移動します。</p>
+    <button onclick="location.href='install.html'">
+        アプリとしてインストールする
+    </button>
 </div>
-
-<!-- Android -->
-<div class="card" id="android" style="display:none;">
-    <h2>Androidでの追加方法</h2>
-
-    <div class="step">
-        ① 右上の「メニュー（⋮）」を押します。
-    </div>
-
-    <div class="step">
-        ② 「ホーム画面に追加」または「アプリとしてインストール」を押します。
-    </div>
-
-    <div class="step">
-        ③ 追加を押します。
-    </div>
-
-    <p class="notice">数秒後にアプリ（出欠フォーム）へ自動で移動します。</p>
-</div>
-
-<!-- 共通：アプリへ戻るボタン -->
-<a class="button" href="index.html">出欠フォームを開く</a>
 
 <script>
-const ua = navigator.userAgent.toLowerCase();
-if (ua.includes("iphone") || ua.includes("ipad")) {
-    document.getElementById("iphone").style.display = "block";
-} else {
-    document.getElementById("android").style.display = "block";
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
 }
-
-// 5秒後に確実に遷移
-setTimeout(() => {
-    window.location.replace("index.html");
-}, 5000);
 </script>
 
 </body>
