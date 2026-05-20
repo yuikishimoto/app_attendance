@@ -1,6 +1,6 @@
 {
-  "name": "出欠フォーム",
-  "short_name": "出欠",
+  "name": "欠席報告",
+  "short_name": "欠席報告",
   "start_url": "index.html",
   "scope": "./",
   "display": "standalone",
