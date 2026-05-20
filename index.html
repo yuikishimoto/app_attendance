@@ -47,12 +47,17 @@ button {
     font-size: 14px;
     color: #444;
 }
-.link {
-    margin-top: 18px;
-    font-size: 15px;
-    color: #007bff;
-    text-decoration: underline;
-    cursor: pointer;
+.guide-title {
+    margin-top: 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.guide {
+    text-align: left;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.7;
 }
 </style>
 </head>
@@ -63,17 +68,29 @@ button {
     <h2>出欠フォーム</h2>
     <p>本日：<span id="today"></span></p>
 
-    <!-- 出欠フォームボタン -->
-    <button onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSfQ3y59bP1Avib7Vz8ZhXxEicA_zhPRjt7YZ2Kiuxqb2acJXw/viewform'">
+    <!-- 出欠フォームボタン（新URL） -->
+    <button onclick="location.href='https://forms.gle/2RgBDVDJXiyE9KTw9'">
         出欠フォームを開く
     </button>
 
     <p class="notice">保護者様がご回答をお願いいたします。</p>
 
-    <!-- 説明文リンク（ボタンではない） -->
-    <p class="link" onclick="location.href='install.html'">
-        ホーム画面に追加する方法はこちら
-    </p>
+    <!-- ホーム追加の説明文（iPhone & Android） -->
+    <p class="guide-title">ホーム画面に追加する方法</p>
+
+    <div class="guide">
+        <b>【iPhone（Safari）】</b><br>
+        ① 画面下の「共有ボタン（□↑）」を押す<br>
+        ② 下にスクロールして「ホーム画面に追加」を押す<br>
+        ③ 右上の「追加」を押す
+    </div>
+
+    <div class="guide" style="margin-top:18px;">
+        <b>【Android（Chrome）】</b><br>
+        ① 右上の「メニュー（⋮）」を押す<br>
+        ② 「ホーム画面に追加」または「アプリとしてインストール」を押す<br>
+        ③ 追加を押す
+    </div>
 </div>
 
 <script>
@@ -84,6 +101,7 @@ if ("serviceWorker" in navigator) {
 
 </body>
 </html>
+
 
 
 
